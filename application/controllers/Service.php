@@ -111,12 +111,14 @@ class Service extends CI_Controller
          } // sampai sini
 
          // untuk update tgl_selesai order
-         $row = $this->Order_model->get_by_id($id);
-         // if ($row)
-         //    $data = [
-         //       'tgl_selesai' => date('Y-m-d'),
-         //    ];
-         // $this->Order_model->update($id, $data);;
+         $id_order = $this->input->post('id_order', TRUE);
+         if ($id_order) {
+            $data = [
+               'tgl_selesai' => date('Y-m-d'),
+            ];
+            $this->db->where('id', $id_order);
+            $this->db->update('order', $data);
+         }
 
          // tambah barang untuk nota (form dinamis)
          foreach ($_POST['rows'] as $key => $val) {
