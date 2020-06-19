@@ -74,6 +74,21 @@ class Order extends CI_Controller
       }
    }
 
+   // untuk detail service dan nota setelah order selesai
+   public function detail($id)
+   {
+      $bengkel = $this->Order_model->bengkel($id);
+      $nota = $this->Order_model->nota($id);
+      $data = array(
+         'bengkel_data' => $bengkel,
+         'nota_data' => $nota,
+         'title' => 'Rincian Service dan Nota',
+         'isi'   => 'order/order_detail'
+      );
+      $data['user'] = $this->session->userdata();
+      $this->load->view('layout/wrapper', $data);
+   }
+
    public function tambah()
    {
       $data = [
@@ -91,7 +106,7 @@ class Order extends CI_Controller
       ];
       $data['user'] = $this->session->userdata();
       $id = $data['user']['id']; // untuk ambil data user yang login
-      // mengambil id pengemudi
+      // mengambil id_pengemudi
       $sql = "SELECT pengemudi.*
                 FROM user
                 JOIN pengemudi ON `user`.id = pengemudi.id_user

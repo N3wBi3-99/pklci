@@ -3,7 +3,7 @@
       <div class="box box-info">
          <!-- /.box-header -->
          <?= $this->session->flashdata('message'); ?>
-         <div class="box-body">
+         <div class="box-body table-responsive">
 
             <p>
                <a href="<?= base_url('pengemudi/tambah') ?>" class="btn btn-success"><i class="fa fa fa-plus"></i> Tambah Data</a>

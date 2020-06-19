@@ -9,6 +9,7 @@ class Service extends CI_Controller
       parent::__construct();
       $this->load->model('Service_model');
       $this->load->model('Nota_model');
+      $this->load->model('Order_model');
    }
 
    public function index()
@@ -40,7 +41,6 @@ class Service extends CI_Controller
          'id' => set_value('id'),
          'id_order' => set_value('id_order'),
          'id_bengkel' => set_value('id_bengkel'),
-         'no_nota' => set_value('no_nota'),
          'total' => set_value('total'),
          'tgl_service' => set_value('tgl_service'),
          'foto_service' => set_value('foto_service'),
@@ -62,7 +62,6 @@ class Service extends CI_Controller
          $data = array(
             'id_order' => $this->input->post('id_order', TRUE),
             'id_bengkel' => $this->input->post('id_bengkel', TRUE),
-            'no_nota' => $this->input->post('no_nota', TRUE),
             'total' => $this->input->post('total', TRUE),
             'tgl_service' => $this->input->post('tgl_service', TRUE),
          );
@@ -111,6 +110,14 @@ class Service extends CI_Controller
             }
          } // sampai sini
 
+         // untuk update tgl_selesai order
+         $row = $this->Order_model->get_by_id($id);
+         // if ($row)
+         //    $data = [
+         //       'tgl_selesai' => date('Y-m-d'),
+         //    ];
+         // $this->Order_model->update($id, $data);;
+
          // tambah barang untuk nota (form dinamis)
          foreach ($_POST['rows'] as $key => $val) {
             $jumlah = $this->input->post('harga_satuan' . $val) * $this->input->post('banyak' . $val);
@@ -123,7 +130,6 @@ class Service extends CI_Controller
             );
             $this->Nota_model->insert($data);
          }
-
          $this->session->set_flashdata('message', '<script>toastr.success("Data Berhasil Ditambahkan");</script>');
          redirect(site_url('service'));
       }
@@ -146,7 +152,6 @@ class Service extends CI_Controller
    {
       $this->form_validation->set_rules('id_order', 'id order', 'trim|required');
       $this->form_validation->set_rules('id_bengkel', 'id bengkel', 'trim|required');
-      $this->form_validation->set_rules('no_nota', 'no nota', 'trim|required');
       $this->form_validation->set_rules('total', 'total', 'trim|required');
       $this->form_validation->set_rules('tgl_service', 'tgl service', 'trim|required');
       $this->form_validation->set_rules('foto_service', 'foto service', 'trim');

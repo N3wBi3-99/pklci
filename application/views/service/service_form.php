@@ -81,12 +81,6 @@
                      </div>
                   </div>
                   <div class="form-group">
-                     <label for="int" class="col-sm-4 control-label">Nomor Nota <?php echo form_error('no_nota') ?></label>
-                     <div class="col-sm-5">
-                        <input type="text" class="form-control" name="no_nota" id="no_nota" placeholder="Nomor Nota" value="<?php echo $no_nota; ?>" />
-                     </div>
-                  </div>
-                  <div class="form-group">
                      <label for="date" class="col-sm-4 control-label">Tanggal Service <?php echo form_error('tgl_service') ?></label>
                      <div class="col-sm-5">
                         <div class="input-group date">

@@ -16,7 +16,6 @@
                      <th>No</th>
                      <th>Tanggal Order</th>
                      <th>Nama Bengkel</th>
-                     <th>Nomor Nota</th>
                      <th>Total</th>
                      <th>Tanggal Service</th>
                      <th>Foto Service</th>
@@ -31,7 +30,6 @@
                         <td><?= $no++ ?></td>
                         <td><?php echo date('d M Y', strtotime($service->tgl_order)) ?></td>
                         <td><?php echo $service->nama_bengkel ?></td>
-                        <td><?php echo $service->no_nota ?></td>
                         <td><?php echo $service->total ?></td>
                         <td><?php echo date('d M Y', strtotime($service->tgl_service)) ?></td>
                         <td><a href="<?= base_url('assets/img/service/' . $service->foto_service) ?>"><img src="<?= base_url('assets/img/service/' . $service->foto_service) ?>" width="100" alt="foto_service"></a></td>

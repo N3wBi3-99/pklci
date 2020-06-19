@@ -23,9 +23,9 @@ class Order_model extends CI_Model
 
       $this->db->select(['user.*', 'user.id id_userr', 'kendaraan.*', 'kendaraan.id id_kendaraann', 'order.*']);
       $this->db->from('order');
-      $this->db->join('pengemudi', 'pengemudi.id = order.id_pengemudi');
-      $this->db->join('kendaraan', 'kendaraan.id = pengemudi.id_kendaraan');
-      $this->db->join('user', 'user.id = pengemudi.id_user');
+      $this->db->join('pengemudi', 'order.id_pengemudi = pengemudi.id');
+      $this->db->join('kendaraan', 'pengemudi.id_kendaraan = kendaraan.id');
+      $this->db->join('user', 'pengemudi.id_user = user.id');
       $this->db->where('pengemudi.id_user', $id);
       $this->db->order_by('order.id', 'desc');
       $query = $this->db->get();
@@ -44,7 +44,7 @@ class Order_model extends CI_Model
       $query = $this->db->get();
       return $query->row_array();
    }
-
+   // untuk menampilkan data order baru
    function order_baru()
    {
       $this->db->select('*');
@@ -54,6 +54,7 @@ class Order_model extends CI_Model
       return $query->result();
    }
 
+   // untuk menampilkan  jumlah order baru
    function total_order_baru()
    {
       $this->db->select('*');
@@ -63,6 +64,29 @@ class Order_model extends CI_Model
       $rowcount = $query->num_rows();
       return $rowcount;
    }
+
+   // untuk detail order bagian bengkel
+   function bengkel($id)
+   {
+      $this->db->select(['bengkel.*', 'service.tgl_service', 'service.total', 'service.foto_service', 'service.foto_nota']);
+      $this->db->from('service');
+      $this->db->join('bengkel', 'service.id_bengkel = bengkel.id');
+      $this->db->where('service.id_order', $id);
+      $query = $this->db->get();
+      return $query->row();
+   }
+
+   // untuk detail order bagian nota
+   function nota($id)
+   {
+      $this->db->select(['nota.*']);
+      $this->db->from('service');
+      $this->db->join('nota', 'nota.id_service = service.id');
+      $this->db->where('service.id_order', $id);
+      $query = $this->db->get();
+      return $query->result();
+   }
+
 
    // get data by id
    function get_by_id($id)

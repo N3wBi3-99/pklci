@@ -3,7 +3,7 @@
       <div class="box box-info">
          <!-- /.box-header -->
          <?= $this->session->flashdata('message'); ?>
-         <div class="box-body">
+         <div class="box-body table-responsive">
             <?php if ($user['level'] == 'Pengemudi') { ?>
                <?php if ($status == 'Aktif') { ?>
                   <p>
@@ -42,17 +42,17 @@
                         <?php } ?>
                         <td><?= $order->jenis_order ?></td>
                         <td><?= $order->ket_rusak ?></td>
-                        <td><?= date('d M Y', strtotime($order->tgl_order)) ?></td>
+                        <td><?= tgl_indo(($order->tgl_order)) ?></td>
                         <td>
                            <?php if (!$order->tgl_selesai) { ?>
                               <a href="#" class="btn btn-warning btn-sm disabled"> Belum Selesai</a>
                            <?php } elseif ($order->status == 'Ditolak') { ?>
                               <a href="#" class="btn btn-warning btn-sm disabled"> Batal Order</a>
                            <?php } else { ?>
-                              <?= date('d M Y', strtotime($order->tgl_order)); ?>
+                              <?= tgl_indo(($order->tgl_selesai)); ?>
                               <?= ''; ?>
                               <?php if ($user['level'] == 'Admin') { ?>
-                                 <a href="<?= base_url('order/read/' . $order->id) ?>" title="Detail">(<i class="fa fa-info-circle"></i>) </a>
+                                 <a href="<?= base_url('order/detail/' . $order->id) ?>" title="Detail">(<i class="fa fa-info-circle"></i>) </a>
                               <?php } ?>
                            <?php } ?>
                         </td>

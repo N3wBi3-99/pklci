@@ -3,7 +3,7 @@
       <div class="box box-info">
          <!-- /.box-header -->
          <?= $this->session->flashdata('message'); ?>
-         <div class="box-body">
+         <div class="box-body table-responsive">
 
             <p>
                <a href="<?= base_url('kendaraan/tambah') ?>" class="btn btn-success btn-sm"><i class="fa fa-plus"></i> Tambah Data</a>
@@ -31,7 +31,7 @@
                         <td><?= $kendaraan->no_plat ?></td>
                         <td><?= $kendaraan->merk ?></td>
                         <td><?= $kendaraan->jenis_kendaraan ?></td>
-                        <td><?= date('Y', strtotime($kendaraan->tahun_pembuatan)) ?></td>
+                        <td><?= $kendaraan->tahun_pembuatan ?></td>
                         <td style="text-align:center" width="120px">
                            <a href="<?= base_url('kendaraan/read/' . $kendaraan->id) ?>" class="btn btn-info btn-sm" title="Detail"><i class="fa fa-info-circle"></i> </a>
                            <a href="<?= base_url('kendaraan/ubah/' . $kendaraan->id) ?>" class="btn btn-warning btn-sm" title="Ubah Data"><i class="fa fa-pencil"></i> </a>

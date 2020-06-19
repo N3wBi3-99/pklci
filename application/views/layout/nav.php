@@ -49,7 +49,7 @@
          <?php if ($user['level'] == 'Admin') { ?>
             <li <?= $this->uri->segment(1) == 'kardek' ? 'class="active"' : '' ?>>
                <a href="<?= base_url('kardek') ?>">
-                  <i class="fa fa-book"></i> <span>Data Kardex</span>
+                  <i class="fa fa-book"></i> <span>Data Kardek</span>
                   <span class="pull-right-container">
                   </span>
                </a>

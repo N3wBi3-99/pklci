@@ -13,7 +13,7 @@ class Dashboard extends CI_Controller
       $this->load->model('Order_model');
       $this->load->model('Kendaraan_model');
       $this->load->model('Bengkel_model');
-      cek_login();
+      cek_admin();
    }
 
    public function index()

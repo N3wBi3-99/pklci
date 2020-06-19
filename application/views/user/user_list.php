@@ -2,7 +2,7 @@
    <div class="col-xs-12">
       <div class="box box-info">
          <!-- /.box-header -->
-         <div class="box-body">
+         <div class="box-body table-responsive">
             <?= $this->session->flashdata('message'); ?>
 
             <p>

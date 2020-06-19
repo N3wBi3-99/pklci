@@ -82,14 +82,14 @@
                      foreach ($order_data as $order) { ?>
                         <tr>
                            <td width="40px"><?= $no++ ?></td>
-                           <td><?= date('d M Y', strtotime($order->tgl_order)) ?></td>
+                           <td><?= tgl_indo(($order->tgl_order)) ?></td>
                            <td><?= $order->ket_rusak ?></td>
                            <td><?php if (!$order->tgl_selesai) { ?>
                                  <a href="#" class="btn btn-warning btn-sm disabled"> Belum Selesai</a>
                               <?php } elseif ($order->status == 'Ditolak') { ?>
                                  <a href="#" class="btn btn-warning btn-sm disabled"> Batal Order</a>
                               <?php } else { ?>
-                                 <?= date('d M Y', strtotime($order->tgl_order)); ?>
+                                 <?= tgl_indo(($order->tgl_order)); ?>
                               <?php } ?>
                            </td>
                            <td style="text-align:center" width="120px">
@@ -104,7 +104,7 @@
          <!-- /.box-body -->
          <div class="box-footer with-border">
             <div class="col-xs-12">
-               <a href="<?php echo site_url('pengemudi') ?>" class="btn btn-default" style="margin-right: 5px;">Batal</a>
+               <a href="<?php echo site_url('pengemudi') ?>" class="btn btn-default" style="margin-right: 5px;">Kembali</a>
                <a href="invoice-print.html" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> Print</a>
                <button type="button" class="btn btn-success pull-right">
                   <i class="fa fa-file-text-o"></i> Total biaya service
