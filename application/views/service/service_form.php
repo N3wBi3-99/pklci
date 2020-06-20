@@ -91,12 +91,7 @@
                         </div>
                      </div>
                   </div>
-                  <div class="form-group">
-                     <label for="int" class="col-sm-4 control-label">Total <?php echo form_error('total') ?></label>
-                     <div class="col-sm-5">
-                        <input type="text" class="form-control" name="total" id="total" placeholder="Total" value="<?php echo $total; ?>" readonly />
-                     </div>
-                  </div>
+
                   <div class="form-group">
                      <label for="foto_service" class="col-sm-4 control-label">Foto Service <?php echo form_error('foto_service') ?></label>
                      <div class="col-sm-5">
@@ -116,6 +111,12 @@
                   </div>
                   <div>
                      <div class="" style="margin: auto; width:90%;" id="divbarang"></div>
+                  </div>
+                  <div class="form-group">
+                     <label for="int" class="col-sm-4 control-label">Total <?php echo form_error('total') ?></label>
+                     <div class="col-sm-5">
+                        <input type="text" class="form-control" name="total" id="total" placeholder="Total" value="<?php echo $total; ?>" readonly />
+                     </div>
                   </div>
                </div>
                <div class="box-footer">
