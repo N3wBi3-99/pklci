@@ -32,7 +32,7 @@
                         <div class="form-group">
                            <label for="int" class="col-sm-4 control-label">Tahun Pembuatan </label>
                            <div class="col-sm-8">
-                              <input type="text" class="form-control" name="tahun_pembuatan" id="tahun_pembuatan" placeholder="Tahun Pembuatan" value="<?php echo $tahun_pembuatan; ?>" />
+                              <input type="text" class="form-control" name="tahun_pembuatan" id="tahun_pembuatan" placeholder="Tahun Pembuatan" value="<?php echo $tahun_pembuatan; ?>" maxlength="4" onkeypress="return hanyaAngka(event)" />
                               <?php echo form_error('tahun_pembuatan') ?>
                            </div>
                         </div>
@@ -41,28 +41,28 @@
                         <div class="form-group">
                            <label for="int" class="col-sm-3 control-label">Nomor Plat </label>
                            <div class="col-sm-8">
-                              <input type="text" class="form-control" name="no_plat" id="no_plat" placeholder="Nomor Plat" value="<?php echo $no_plat; ?>" />
+                              <input type="text" class="form-control" name="no_plat" id="no_plat" placeholder="Nomor Plat" value="<?php echo $no_plat; ?>" onkeypress="return hanyaAngka(event)" />
                               <?php echo form_error('no_plat') ?>
                            </div>
                         </div>
                         <div class="form-group">
                            <label for="int" class="col-sm-3 control-label">Nomor Rangka </label>
                            <div class="col-sm-8">
-                              <input type="text" class="form-control" name="no_rangka" id="no_rangka" placeholder="Nomor Rangka" value="<?php echo $no_rangka; ?>" />
+                              <input type="text" class="form-control" name="no_rangka" id="no_rangka" placeholder="Nomor Rangka" value="<?php echo $no_rangka; ?>" onkeypress="return hanyaAngka(event)" />
                               <?php echo form_error('no_rangka') ?>
                            </div>
                         </div>
                         <div class="form-group">
                            <label for="int" class="col-sm-3 control-label">Nomor Mesin </label>
                            <div class="col-sm-8">
-                              <input type="text" class="form-control" name="no_mesin" id="no_mesin" placeholder="Nomor Mesin" value="<?php echo $no_mesin; ?>" />
+                              <input type="text" class="form-control" name="no_mesin" id="no_mesin" placeholder="Nomor Mesin" value="<?php echo $no_mesin; ?>" onkeypress="return hanyaAngka(event)" />
                               <?php echo form_error('no_mesin') ?>
                            </div>
                         </div>
                         <div class="form-group">
                            <label for="int" class="col-sm-3 control-label">Nomor BPKB </label>
                            <div class="col-sm-8">
-                              <input type="text" class="form-control" name="no_bpkb" id="no_bpkb" placeholder="Nomor BPKB" value="<?php echo $no_bpkb; ?>" />
+                              <input type="text" class="form-control" name="no_bpkb" id="no_bpkb" placeholder="Nomor BPKB" value="<?php echo $no_bpkb; ?>" onkeypress="return hanyaAngka(event)" />
                               <?php echo form_error('no_bpkb') ?>
                            </div>
                         </div>
@@ -74,6 +74,15 @@
                      <button type="submit" class="btn btn-primary pull-right"><?php echo $button ?></button>
                   </div>
             </form>
+
+            <script>
+               function hanyaAngka(evt) {
+                  var charCode = (evt.which) ? evt.which : event.keyCode
+                  if (charCode > 31 && (charCode < 48 || charCode > 57))
+                     return false;
+                  return true;
+               }
+            </script>
 
          </div>
          <!-- /.box-body -->

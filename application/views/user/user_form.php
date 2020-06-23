@@ -14,7 +14,7 @@
                            <div class="form-group">
                               <label for="int" class="col-sm-3 control-label">Nip </label>
                               <div class="col-sm-8">
-                                 <input type="text" class="form-control" name="nip" id="nip" placeholder="Nip" value="<?php echo $nip; ?>" />
+                                 <input type="text" class="form-control" name="nip" id="nip" placeholder="Nip" value="<?php echo $nip; ?>" maxlength="18" onkeypress="return hanyaAngka(event)" />
                                  <?php echo form_error('nip') ?>
                               </div>
                            </div>
@@ -55,7 +55,7 @@
                            <div class="form-group">
                               <label for="text" class="col-sm-3 control-label">No Hp </label>
                               <div class="col-sm-8">
-                                 <input type="text" class="form-control" name="no_hp" id="no_hp" placeholder="No Hp" value="<?php echo $no_hp; ?>" />
+                                 <input type="text" class="form-control" name="no_hp" id="no_hp" placeholder="No Hp" value="<?php echo $no_hp; ?>" maxlength="15" onkeypress="return hanyaAngka(event)" />
                                  <?php echo form_error('no_hp') ?>
                               </div>
                            </div>
@@ -109,6 +109,15 @@
                         <?php } ?>
                      </div>
                   </form>
+
+                  <script>
+                     function hanyaAngka(evt) {
+                        var charCode = (evt.which) ? evt.which : event.keyCode
+                        if (charCode > 31 && (charCode < 48 || charCode > 57))
+                           return false;
+                        return true;
+                     }
+                  </script>
 
          </div>
          <!-- /.box-body -->
