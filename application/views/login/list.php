@@ -29,7 +29,7 @@
    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
 
-<body class="hold-transition login-page" style="background: url('<?= base_url() ?>assets/admin/img/symphony.png')">
+<body class="hold-transition login-page">
    <div class="login-box">
       <div class="login-logo">
          <img src="<?= base_url() ?>assets/admin/img/logo_kudus.png" width="140px" alt="Logo Kudus">
