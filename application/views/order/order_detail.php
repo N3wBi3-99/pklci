@@ -70,7 +70,7 @@
          <div class="box-footer with-border">
             <div class="col-xs-12">
                <a href="<?php echo site_url('order') ?>" class="btn btn-default" style="margin-right: 5px;">Kembali</a>
-               <a href="invoice-print.html" target="_blank" class="btn btn-success pull-right">
+               <a href="<?= site_url('order/cetak/' . $this->uri->segment(3)) ?>" target="_blank" class="btn btn-success pull-right">
                   <i class="fa fa-print"></i> Print
                </a>
                <button type="button" class="btn btn-primary pull-right" style="margin-right: 5px;">

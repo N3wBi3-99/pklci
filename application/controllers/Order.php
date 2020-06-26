@@ -89,6 +89,28 @@ class Order extends CI_Controller
       $this->load->view('layout/wrapper', $data);
    }
 
+   public function cetak($id)
+   {
+      $bengkel = $this->Order_model->bengkel($id);
+      $nota = $this->Order_model->nota($id);
+      $data = array(
+         'bengkel_data' => $bengkel,
+         'nota_data' => $nota,
+         'title' => 'Cetak Detail Service',
+      );
+      $data['user'] = $this->session->userdata();
+
+      $html = $this->load->view('order/order_cetak', $data, TRUE);
+      $mpdf = new \Mpdf\Mpdf([
+         'mode' => 'utf-8',
+         'format' => [210, 330] //ukuran F4
+      ]);
+      $mpdf->SetTitle('Detail Service');
+      $mpdf->WriteHTML($html);
+      $nama_file = url_title('Detail Service', 'dash', 'true') . '-' . $id . '.pdf';
+      $mpdf->Output($nama_file, 'I');
+   }
+
    public function tambah()
    {
       $data = [
