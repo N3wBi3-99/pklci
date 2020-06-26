@@ -37,8 +37,6 @@ Cara Install Aplikasi
 3. Extract file yang sudah di download tadi, kemudian letakkan di folder C:\Xampp\htdocs\
 4. Buka folder yang sudah dipindahkan tadi, lalu cari file db_kendaraan.sql kemudian importkan ke database yang sudah dibuat tadi.
 5. silahkan login ke dalam aplikasi
-* ADMIN : admin (admin)
-* Pengemudi : pengemudi (pengemudi)
 
 *******
 License
