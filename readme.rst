@@ -20,28 +20,25 @@ You can find a list of all changes for each release in the `user
 guide change log <https://github.com/bcit-ci/CodeIgniter/blob/develop/user_guide_src/source/changelog.rst>`_.
 
 *******************
-Server Requirements
+Beberapa hal yang dibutuhkan sebelum Instalasi Aplikasi
 *******************
 
-1. PHP version 5.6 or newer is recommended.
-
-   It should work on 5.3.7 as well, but we strongly advise you NOT to run
-   such old versions of PHP, because of potential security and performance
-   issues, as well as missing features.
-
-2. Mysql 
-
-   it's to save the database
-
-3. Browser (firefox / chrome / etc.)
-
-   it can be access in newer browser.
+1. XAMPP 
+2. PHP version 5.6 or newer is recommended.
+3. Mysql 
+4. Browser (firefox / chrome / etc.)
 
 ************
 Cara Install Aplikasi
 ************
 
-1. Downloads zip / 
+1. Downloads zip / remote repositori ini <https://github.com/N3wBi3-99/pklci.git> .
+2. Buat database baru dengan nama db_kendaraan menggunakan XAMPP.
+3. Extract file yang sudah di download tadi, kemudian letakkan di folder C:\Xampp\htdocs\
+4. Buka folder yang sudah dipindahkan tadi, lalu cari file db_kendaraan.sql kemudian importkan ke database yang sudah dibuat tadi
+5. silahkan login ke dalam aplikasi : 
+ADMIN : admin (admin)
+Pengemudi : pengemudi (pengemudi)
 
 *******
 License
