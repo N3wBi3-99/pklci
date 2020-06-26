@@ -32,13 +32,13 @@ Beberapa hal yang dibutuhkan sebelum Instalasi Aplikasi
 Cara Install Aplikasi
 ************
 
-1. Downloads zip / remote repositori ini <https://github.com/N3wBi3-99/pklci.git> .
+1. Downloads zip / remote repositori ini https://github.com/N3wBi3-99/pklci.git
 2. Buat database baru dengan nama db_kendaraan menggunakan XAMPP.
 3. Extract file yang sudah di download tadi, kemudian letakkan di folder C:\Xampp\htdocs\
-4. Buka folder yang sudah dipindahkan tadi, lalu cari file db_kendaraan.sql kemudian importkan ke database yang sudah dibuat tadi
-5. silahkan login ke dalam aplikasi : 
-ADMIN : admin (admin)
-Pengemudi : pengemudi (pengemudi)
+4. Buka folder yang sudah dipindahkan tadi, lalu cari file db_kendaraan.sql kemudian importkan ke database yang sudah dibuat tadi.
+5. silahkan login ke dalam aplikasi
+* ADMIN : admin (admin)
+* Pengemudi : pengemudi (pengemudi)
 
 *******
 License
