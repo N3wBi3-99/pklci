@@ -38,6 +38,9 @@ Cara Install Aplikasi
 4. Buka folder yang sudah dipindahkan tadi, lalu cari file db_kendaraan.sql kemudian importkan ke database yang sudah dibuat tadi.
 5. silahkan login ke dalam aplikasi
 
+-  `admin (admin)`_
+-  `pengemudi (pengemudi)`_
+
 *******
 License
 *******
