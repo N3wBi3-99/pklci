@@ -47,13 +47,6 @@
             </a>
          </li>
          <?php if ($user['level'] == 'Admin') { ?>
-            <li <?= $this->uri->segment(1) == 'kardek' ? 'class="active"' : '' ?>>
-               <a href="<?= base_url('kardek') ?>">
-                  <i class="fa fa-book"></i> <span>Data Kardek</span>
-                  <span class="pull-right-container">
-                  </span>
-               </a>
-            </li>
             <li <?= $this->uri->segment(1) == 'pengemudi' ? 'class="active"' : '' ?>>
                <a href="<?= base_url('pengemudi') ?>">
                   <i class="fa fa-user"></i> <span>Data Pengemudi</span>
@@ -78,6 +71,13 @@
             <li <?= $this->uri->segment(1) == 'bengkel' ? 'class="active"' : '' ?>>
                <a href="<?= base_url('bengkel') ?>">
                   <i class="fa fa-gears"></i> <span>Data Bengkel</span>
+                  <span class="pull-right-container">
+                  </span>
+               </a>
+            </li>
+            <li <?= $this->uri->segment(1) == 'laporan' ? 'class="active"' : '' ?>>
+               <a href="<?= base_url('laporan') ?>">
+                  <i class="fa fa-book"></i> <span>Laporan</span>
                   <span class="pull-right-container">
                   </span>
                </a>

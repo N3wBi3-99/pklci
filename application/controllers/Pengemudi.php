@@ -117,6 +117,20 @@ class Pengemudi extends CI_Controller
       $this->load->view('layout/wrapper', $data);
    }
 
+   function cetak_kardek($id)
+   {
+      $pengemudi = $this->Pengemudi_model->kardek($id);
+      $order = $this->Pengemudi_model->kardek_order($id);
+      $data = array(
+         'pengemudi_data' => $pengemudi,
+         'order_data' => $order,
+         'title' => 'Data Kardek',
+         'isi'   => 'kardek/kardek_list'
+      );
+      $data['user'] = $this->session->userdata();
+      $this->load->view('layout/wrapper', $data);
+   }
+
    public function _rules()
    {
       $this->form_validation->set_rules('id_user', 'id user', 'trim|required');

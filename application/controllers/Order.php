@@ -99,7 +99,7 @@ class Order extends CI_Controller
          'title' => 'Cetak Detail Service',
       );
       $data['user'] = $this->session->userdata();
-
+      // konfigurasi file pdf
       $html = $this->load->view('order/order_cetak', $data, TRUE);
       $mpdf = new \Mpdf\Mpdf([
          'mode' => 'utf-8',

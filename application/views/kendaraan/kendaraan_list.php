@@ -7,7 +7,6 @@
 
             <p>
                <a href="<?= base_url('kendaraan/tambah') ?>" class="btn btn-success btn-sm"><i class="fa fa-plus"></i> Tambah Data</a>
-               <a href="<?= base_url('kendaraan/export_excel') ?>" class="btn btn-success btn-sm"><i class="fa fa-file-excel-o"></i> Export Ms Excel</a>
             </p>
 
             <table id="example1" class="table table-bordered table-striped">
