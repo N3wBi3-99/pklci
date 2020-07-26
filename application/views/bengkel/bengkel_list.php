@@ -33,8 +33,13 @@
                         <?php if ($user['level'] == 'Admin') { ?>
                            <td style="text-align:center" width="120px">
                               <a href="<?= base_url('bengkel/read/' . $bengkel->id) ?>" class="btn btn-info btn-sm" title="Detail"><i class="fa fa-info-circle"></i> </a>
-                              <a href="<?= base_url('bengkel/ubah/' . $bengkel->id) ?>" class="btn btn-warning btn-sm" title="Ubah Data"><i class="fa fa-pencil"></i> </a>
-                              <a href="<?= base_url('bengkel/hapus/' . $bengkel->id) ?>" class="btn btn-danger btn-sm" title="Hapus Data" onClick="return confirm('Hapus data bengkel ?')"><i class="fa fa-trash"></i></a>
+                              <?php
+                              $sql = "SELECT * FROM `service` WHERE id_bengkel = {$bengkel->id}";
+                              $cek_bengkel = $this->db->query($sql)->row();
+                              if (!$cek_bengkel) { ?>
+                                 <a href="<?= base_url('bengkel/ubah/' . $bengkel->id) ?>" class="btn btn-warning btn-sm" title="Ubah Data"><i class="fa fa-pencil"></i> </a>
+                                 <a href="<?= base_url('bengkel/hapus/' . $bengkel->id) ?>" class="btn btn-danger btn-sm" title="Hapus Data" onClick="return confirm('Hapus data bengkel ?')"><i class="fa fa-trash"></i></a>
+                              <?php } ?>
                            </td>
                         <?php } ?>
                      </tr>

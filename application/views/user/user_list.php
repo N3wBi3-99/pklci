@@ -35,8 +35,13 @@
                         <td><?= $user->level ?></td>
                         <td style="text-align:center">
                            <a href="<?= base_url('user/read/' . $user->id) ?>" class="btn btn-info btn-sm" title="Detail"><i class="fa fa-info-circle"></i> </a>
-                           <a href="<?= base_url('user/ubah/' . $user->id) ?>" class="btn btn-warning btn-sm" title="Ubah Data"><i class="fa fa-pencil"></i> </a>
-                           <a href="<?= base_url('user/hapus/' . $user->id) ?>" class="btn btn-danger btn-sm" title="Hapus Data" onClick="return confirm('Hapus data user ?')"><i class="fa fa-trash"></i></a>
+                           <?php
+                           $sql = "SELECT * FROM pengemudi WHERE id_user = {$user->id}";
+                           $cek_user = $this->db->query($sql)->row();
+                           if (!$cek_user) { ?>
+                              <a href="<?= base_url('user/ubah/' . $user->id) ?>" class="btn btn-warning btn-sm" title="Ubah Data"><i class="fa fa-pencil"></i> </a>
+                              <a href="<?= base_url('user/hapus/' . $user->id) ?>" class="btn btn-danger btn-sm" title="Hapus Data" onClick="return confirm('Hapus data user ?')"><i class="fa fa-trash"></i></a>
+                           <?php } ?>
                         </td>
                      </tr>
                   <?php } ?>

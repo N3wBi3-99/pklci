@@ -44,8 +44,7 @@
                         <td style="text-align:center" width="120px">
                            <a href="<?= base_url('pengemudi/read/' . $pengemudi->id) ?>" class="btn btn-info btn-sm" title="Detail"><i class="fa fa-info-circle"></i> </a>
                            <?php
-                           $sql = "SELECT * FROM `order` 
-                           WHERE id_pengemudi = {$pengemudi->id}";
+                           $sql = "SELECT * FROM `order` WHERE id_pengemudi = {$pengemudi->id}";
                            $cek_order = $this->db->query($sql)->row();
                            if (!$cek_order) { ?>
                               <a href="<?= base_url('pengemudi/ubah/' . $pengemudi->id) ?>" class="btn btn-warning btn-sm" title="Ubah Data"><i class="fa fa-pencil"></i> </a>
