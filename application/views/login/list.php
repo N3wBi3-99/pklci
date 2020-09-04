@@ -42,7 +42,7 @@
          <form action="<?= base_url('auth') ?>" method="post">
             <div class="form-group has-feedback">
                <input type="text" class="form-control" id="username" name="username" placeholder="Username" value="<?= set_value('username'); ?>">
-               <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+               <span class="glyphicon glyphicon-user form-control-feedback"></span>
                <?= form_error('username', '<small class="text-danger">', '</small>'); ?>
             </div>
             <div class="form-group has-feedback">

@@ -8,7 +8,11 @@ class Auth extends CI_Controller
    public function index()
    {
       if ($this->session->userdata('username')) { // agar user tidak bisa kembali ke halaman login
-         redirect('dashboard');
+         if ($this->session->userdata('level') == 'Pengemudi') {
+            redirect('order');
+         } else {
+            redirect('dashboard');
+         }
       }
       $this->form_validation->set_rules('username', 'Username', 'trim|required');
       $this->form_validation->set_rules('password', 'Password', 'trim|required');

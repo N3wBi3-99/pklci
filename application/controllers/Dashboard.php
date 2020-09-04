@@ -18,10 +18,10 @@ class Dashboard extends CI_Controller
 
    public function index()
    {
-      $user = $this->Bengkel_model->total_data();
-      $pengemudi = $this->Bengkel_model->total_data();
-      $order = $this->Bengkel_model->total_data();
-      $kendaraan = $this->Bengkel_model->total_data();
+      $user = $this->User_model->total_data();
+      $pengemudi = $this->Pengemudi_model->total_data();
+      $order = $this->Order_model->total_data();
+      $kendaraan = $this->Kendaraan_model->total_data();
       $bengkel = $this->Bengkel_model->total_data();
       $data = array(
          'title' => 'Halaman Administrator',

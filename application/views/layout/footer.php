@@ -29,6 +29,9 @@
 <script src="<?= base_url() ?>assets/admin/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
 <!-- FastClick -->
 <script src="<?= base_url() ?>assets/admin/bower_components/fastclick/lib/fastclick.js"></script>
+<!-- date-range-picker -->
+<script src="assets/admin/bower_components/moment/min/moment.min.js"></script>
+<script src="assets/admin/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
 <!-- bootstrap datepicker -->
 <script src="<?= base_url() ?>assets/admin/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
 <!-- iCheck 1.0.1 -->
@@ -56,6 +59,9 @@
          checkboxClass: 'icheckbox_minimal-blue',
          radioClass: 'iradio_minimal-blue'
       })
+      //Date range picker
+      $('#reservation').daterangepicker()
+
       //Date picker
       $('#datepicker').datepicker({
          autoclose: true,

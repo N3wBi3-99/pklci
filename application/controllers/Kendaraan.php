@@ -91,7 +91,7 @@ class Kendaraan extends CI_Controller
          $this->load->view('layout/wrapper', $data);
       } else {
          $this->session->set_flashdata('message', 'Record Not Found');
-         redirect(site_url('bengkel'));
+         redirect(site_url('kendaraan'));
       }
    }
 
@@ -138,14 +138,17 @@ class Kendaraan extends CI_Controller
       $row = $this->Kendaraan_model->get_by_id($id);
       if ($row) {
          $data = array(
-            'button' => 'Ubah',
-            'action' => site_url('bengkel/ubah_aksi'),
-            'id' => set_value('id', $row->id),
-            'nama_bengkel' => set_value('nama_bengkel', $row->nama_bengkel),
-            'alamat' => set_value('alamat', $row->alamat),
-            'no_hp' => set_value('no_hp', $row->no_hp),
-            'title' => 'Ubah Data', // untuk judul
-            'isi' => 'bengkel/bengkel_form'
+            'id' => $row->id,
+            'nama_pemilik' => $row->nama_pemilik,
+            'merk' => $row->merk,
+            'jenis_kendaraan' => $row->jenis_kendaraan,
+            'tahun_pembuatan' => $row->tahun_pembuatan,
+            'no_plat' => $row->no_plat,
+            'no_rangka' => $row->no_rangka,
+            'no_mesin' => $row->no_mesin,
+            'no_bpkb' => $row->no_bpkb,
+            'title' => 'Detail Kendaraan', // untuk judul
+            'isi' => 'kendaraan/kendaraan_read'
          );
          $data['user'] = $this->session->userdata();
          $this->load->view('layout/wrapper', $data);

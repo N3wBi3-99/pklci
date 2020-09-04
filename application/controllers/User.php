@@ -154,17 +154,22 @@ class User extends CI_Controller
 
    public function read($id)
    {
-      $row = $this->Bengkel_model->get_by_id($id);
+      $row = $this->User_model->get_by_id($id);
       if ($row) {
          $data = array(
-            'button' => 'Ubah',
-            'action' => site_url('bengkel/ubah_aksi'),
-            'id' => set_value('id', $row->id),
-            'nama_bengkel' => set_value('nama_bengkel', $row->nama_bengkel),
-            'alamat' => set_value('alamat', $row->alamat),
-            'no_hp' => set_value('no_hp', $row->no_hp),
-            'title' => 'Ubah Data', // untuk judul
-            'isi' => 'bengkel/bengkel_form'
+            'id' => $row->id,
+            'nip' => $row->nip,
+            'nama' => $row->nama,
+            'tempat_lahir' => $row->tempat_lahir,
+            'tgl_lahir' => $row->tgl_lahir,
+            'jenis_kelamin' => $row->jenis_kelamin,
+            'no_hp' => $row->no_hp,
+            'alamat' => $row->alamat,
+            'username' => $row->username,
+            'password' => $row->password,
+            'level' => $row->level,
+            'title' => 'Detail User', // untuk judul
+            'isi' => 'user/user_read'
          );
          $data['user'] = $this->session->userdata();
          $this->load->view('layout/wrapper', $data);

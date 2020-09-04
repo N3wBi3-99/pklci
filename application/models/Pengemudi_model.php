@@ -15,6 +15,16 @@ class Pengemudi_model extends CI_Model
       return $query->result();
    }
 
+   function total_data()
+   {
+      $this->db->select('*');
+      $this->db->from('pengemudi');
+      $this->db->where('pengemudi.status', 'Aktif');
+      $query = $this->db->get();
+      $rowcount = $query->num_rows();
+      return $rowcount;
+   }
+
    function kardek($id)
    {
       $this->db->select(['pengemudi.*', 'user.nama', 'user.no_hp', 'kendaraan.no_plat', 'kendaraan.merk', 'kendaraan.jenis_kendaraan', 'kendaraan.tahun_pembuatan']);

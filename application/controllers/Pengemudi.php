@@ -80,9 +80,29 @@ class Pengemudi extends CI_Controller
       }
    }
 
-   public function ubah()
+   public function ubah($id)
    {
-      # code...
+      $row = $this->Pengemudi_model->get_by_id($id);
+      $user = $this->Pengemudi_model->cmbuser();
+      $kendaraan = $this->Pengemudi_model->cmbkendaraan();
+      if ($row) {
+         $data = array(
+            'user_data'   => $user,
+            'kendaraan_data'   => $kendaraan,
+            'button' => 'Ubah',
+            'action' => site_url('pengemudi/ubah_aksi'),
+            'id' => set_value('id', $row->id),
+            'id_user' => set_value('id_user', $row->id_user),
+            'id_kendaraan' => set_value('id_kendaraan', $row->id_kendaraan),
+            'title' => 'Ubah Data', // untuk judul
+            'isi' => 'pengemudi/pengemudi_form'
+         );
+         $data['user'] = $this->session->userdata();
+         $this->load->view('layout/wrapper', $data);
+      } else {
+         $this->session->set_flashdata('message', 'Record Not Found');
+         redirect(site_url('bengkel'));
+      }
    }
 
    public function ubah_aksi()

@@ -28,7 +28,7 @@
                      <tr>
                         <td><?= $no++ ?></td>
                         <td>
-                           <a href="<?= base_url('pengemudi/kardek/' . $pengemudi->id) ?>" class="btn btn-primary" title="Hapus Data"><i class="fa fa-print"></i> Kardek</a>
+                           <a href="<?= base_url('pengemudi/kardek/' . $pengemudi->id) ?>" class="btn btn-primary" title="Lihat Kardek"><i class="fa fa-print"></i> Kardek</a>
                         </td>
                         <td><?= $pengemudi->nama ?></td>
                         <td><?= $pengemudi->no_plat ?></td>

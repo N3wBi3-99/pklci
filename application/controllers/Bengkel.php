@@ -115,14 +115,12 @@ class Bengkel extends CI_Controller
       $row = $this->Bengkel_model->get_by_id($id);
       if ($row) {
          $data = array(
-            'button' => 'Ubah',
-            'action' => site_url('bengkel/ubah_aksi'),
-            'id' => set_value('id', $row->id),
-            'nama_bengkel' => set_value('nama_bengkel', $row->nama_bengkel),
-            'alamat' => set_value('alamat', $row->alamat),
-            'no_hp' => set_value('no_hp', $row->no_hp),
-            'title' => 'Ubah Data', // untuk judul
-            'isi' => 'bengkel/bengkel_form'
+            'id' => $row->id,
+            'nama_bengkel' => $row->nama_bengkel,
+            'alamat' => $row->alamat,
+            'no_hp' => $row->no_hp,
+            'title' => 'Detail Bengkel', // untuk judul
+            'isi' => 'bengkel/bengkel_read'
          );
          $data['user'] = $this->session->userdata();
          $this->load->view('layout/wrapper', $data);

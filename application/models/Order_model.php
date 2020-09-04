@@ -16,6 +16,15 @@ class Order_model extends CI_Model
       return $query->result();
    }
 
+   function total_data()
+   {
+      $this->db->select('*');
+      $this->db->from('order');
+      $query = $this->db->get();
+      $rowcount = $query->num_rows();
+      return $rowcount;
+   }
+
    function get_pengemudi()
    {
       $user = $this->session->userdata();
