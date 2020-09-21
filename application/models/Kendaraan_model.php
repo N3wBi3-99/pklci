@@ -22,6 +22,18 @@ class Kendaraan_model extends CI_Model
       return $rowcount;
    }
 
+   // detail kendaraan di pengemudi
+   function detail($iduser)
+   {
+      $this->db->select(['kendaraan.id']);
+      $this->db->from('kendaraan');
+      $this->db->join('pengemudi', 'kendaraan.id = pengemudi.id_kendaraan');
+      $this->db->join('user', 'user.id = pengemudi.id_user');
+      $this->db->where('user.id', $iduser);
+      $query = $this->db->get();
+      return $query->row_array();
+   }
+
    // get data by id
    function get_by_id($id)
    {

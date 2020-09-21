@@ -86,7 +86,11 @@
                      <?php } ?>
                      <br> <br>
                      <p>
-                        <?= $user['nama']; ?> - <?= $user['level']; ?>
+                        <?= $user['nama']; ?> - <?php if ($user['level'] == 'Pengemudi') { ?>
+                           <?= $user['level']; ?></a>
+                        <?php } else { ?>
+                           Kasubbag Umum
+                        <?php } ?>
                      </p>
                   </li>
                   <!-- Menu Footer-->

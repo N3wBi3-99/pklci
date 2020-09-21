@@ -24,6 +24,7 @@ class Bengkel extends CI_Controller
 
    public function tambah()
    {
+      cek_admin();
       $data = [
          'button' => 'Tambah',
          'action' => site_url('bengkel/tambah_aksi'),

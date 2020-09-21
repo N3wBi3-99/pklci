@@ -8,11 +8,22 @@ class Kendaraan extends CI_Controller
    {
       parent::__construct();
       $this->load->model('Kendaraan_model');
-      cek_admin();
    }
 
    public function index()
    {
+      // untuk detail kendaraan di pengemudi
+      if ($this->session->userdata('level') == 'Pengemudi') {
+         $user = $this->session->userdata();
+         $iduser = $user['id']; // mengambil id user
+         $array = $this->Kendaraan_model->detail($iduser); // di proses untuk mengambil id kendaraan
+         // $id = implode($array); // convert array to string
+         $this->read($array['id']); // dapat id kendaraan
+         // echo "<pre>";
+         // print_r($array['id']);
+         // exit;
+      }
+
       $kendaraan = $this->Kendaraan_model->list();
       $data = array(
          'kendaraan_data' => $kendaraan,
@@ -25,6 +36,7 @@ class Kendaraan extends CI_Controller
 
    public function tambah()
    {
+      cek_admin();
       $data = [
          'button' => 'Tambah',
          'action' => site_url('kendaraan/tambah_aksi'),

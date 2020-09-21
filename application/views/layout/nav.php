@@ -23,7 +23,11 @@
          </div>
          <div class="pull-left info">
             <p><?= $user['nama']; ?></p>
-            <a href="#"><i class="fa fa-circle text-success"></i> <?= $user['level']; ?></a>
+            <?php if ($user['level'] == 'Pengemudi') { ?>
+               <a href="#"><i class="fa fa-circle text-success"></i> <?= $user['level']; ?></a>
+            <?php } else { ?>
+               <a href="#"><i class="fa fa-circle text-success"></i> Kasubbag Umum</a>
+            <?php } ?>
          </div>
       </div>
       <!-- sidebar menu: : style can be found in sidebar.less -->
@@ -49,7 +53,7 @@
          <?php if ($user['level'] == 'Admin') { ?>
             <li <?= $this->uri->segment(1) == 'pengemudi' ? 'class="active"' : '' ?>>
                <a href="<?= base_url('pengemudi') ?>">
-                  <i class="fa fa-user"></i> <span>Data Pengemudi</span>
+                  <i class="fa fa-user-secret"></i> <span>Data Pengemudi</span>
                   <span class="pull-right-container">
                   </span>
                </a>
@@ -84,6 +88,13 @@
             </li>
          <?php } ?>
          <?php if ($user['level'] == 'Pengemudi') { ?>
+            <li <?= $this->uri->segment(1) == 'kendaraan' ? 'class="active"' : '' ?>>
+               <a href="<?= base_url('kendaraan') ?>">
+                  <i class="fa fa-truck"></i> <span>Detail Kendaraan</span>
+                  <span class="pull-right-container">
+                  </span>
+               </a>
+            </li>
             <li class="treeview <?= $this->uri->segment(1) == 'service' || $this->uri->segment(1) == 'nota' || $this->uri->segment(1) == 'bengkel' ? 'active' : '' ?>">
                <a href="#">
                   <i class="fa fa-dashboard"></i> <span>Service</span>

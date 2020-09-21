@@ -1,5 +1,15 @@
 <div class="row">
    <div class="col-xs-12">
+      <!-- untuk pengemudi yang tidak aktif -->
+      <?php if ($user['level'] == 'Pengemudi') { ?>
+         <?php if ($status != "Aktif") { ?>
+            <div class="callout callout-warning">
+               <h4><i class="icon fa fa-warning"></i> Perhatian</h4>
+               <p>Untuk anda yang terdapat tanda kuning ini, status anda sebagai pengemudi sudah tidak aktif. Jadi anda tidak bisa melakukan order pemeliharaan kembali. Terimakasih atas kerja sama anda selama ini.</p>
+            </div>
+         <?php } ?>
+      <?php } ?>
+
       <div class="box box-info">
          <!-- /.box-header -->
          <?= $this->session->flashdata('message'); ?>

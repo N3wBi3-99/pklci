@@ -39,7 +39,7 @@
                   <tr>
                      <td>Tahun Pembuatan</td>
                      <td>:</td>
-                     <td><?= date('Y', strtotime($pengemudi_data->tahun_pembuatan)) ?></td>
+                     <td><?= $pengemudi_data->tahun_pembuatan ?></td>
                   </tr>
                   <tr>
                      <td>Nomor Kendaraan</td>

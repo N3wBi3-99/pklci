@@ -18,13 +18,18 @@ class Dashboard extends CI_Controller
 
    public function index()
    {
-      $user = $this->User_model->total_data();
-      $pengemudi = $this->Pengemudi_model->total_data();
-      $order = $this->Order_model->total_data();
-      $kendaraan = $this->Kendaraan_model->total_data();
-      $bengkel = $this->Bengkel_model->total_data();
+      $user_total = $this->User_model->total_data();
+      $pengemudi_total = $this->Pengemudi_model->total_data();
+      $order_total = $this->Order_model->total_data();
+      $kendaraan_total = $this->Kendaraan_model->total_data();
+      $bengkel_total = $this->Bengkel_model->total_data();
       $data = array(
-         'title' => 'Halaman Administrator',
+         'user_total' => $user_total,
+         'pengemudi_total' => $pengemudi_total,
+         'order_total' => $order_total,
+         'kendaraan_total' => $kendaraan_total,
+         'bengkel_total' => $bengkel_total,
+         'title' => 'Halaman Dashboard',
          'isi'   => 'dashboard/list'
       );
       $data['user'] = $this->session->userdata();

@@ -8,11 +8,7 @@ class Laporan extends CI_Controller
    public function __construct()
    {
       parent::__construct();
-      $this->load->model('User_model');
-      $this->load->model('Pengemudi_model');
-      $this->load->model('Order_model');
-      $this->load->model('Kendaraan_model');
-      $this->load->model('Bengkel_model');
+      $this->load->model('Laporan_model');
       cek_admin();
    }
 
@@ -35,18 +31,24 @@ class Laporan extends CI_Controller
       if ($this->form_validation->run() == FALSE) {
          $this->index();
       } else {
+         $pengemudi = $this->Laporan_model->get_pengemudi();
+         $range = $this->input->post('range', TRUE); // mendapatkan tgl dari inputan laporan
+         $d = str_replace('-', ',', $range); //menghapus tanda -
+         $d = str_replace(' ', '', $d); // menghapus spasi
+         $array = explode(',', $d); // merubah menjadi array
+         $firstdate = date("Y-m-d", strtotime($array[0]));
+         $lastdate = date("Y-m-d", strtotime($array[1]));
+         foreach ($pengemudi as $key => $value) {
+            $service[$value->id_pengemudi] = $this->Laporan_model->list($value->id_pengemudi, $firstdate, $lastdate); // mengirimkan data untuk menampilkan setiap pengemudi
+         }
          $data = array(
-            'range' => $this->input->post('range', TRUE),
+            'service_data' => $service,
+            'title' => 'Cetak Laporan',
+            'isi'   => 'laporan/laporan_cetak'
          );
-         $d = str_replace('-', ',', $data);
-         $d = str_replace(' ', '', $d);
-         $array = explode(',', $d["range"]);
-         echo "<pre>";
-         print_r($array[0]);
-         exit;
-         $this->Bengkel_model->insert($data);
-         $this->session->set_flashdata('message', '<script>toastr.success("Data Berhasil Ditambahkan");</script>');
-         redirect(site_url('bengkel'));
+         $this->session->set_flashdata('message', '<script>toastr.success("Laporan Berhasil Dicetak");</script>');
+         $data['user'] = $this->session->userdata();
+         $this->load->view('layout/wrapper', $data);
       }
    }
 

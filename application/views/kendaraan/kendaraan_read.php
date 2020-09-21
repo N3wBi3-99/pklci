@@ -19,7 +19,7 @@
                </tr>
                <tr>
                   <td>Tahun Pembuatan</td>
-                  <td><?php echo date('Y', strtotime($tahun_pembuatan)); ?></td>
+                  <td><?php echo $tahun_pembuatan; ?></td>
                </tr>
                <tr>
                   <td>No Plat</td>
@@ -38,9 +38,11 @@
                   <td><?php echo $no_bpkb; ?></td>
                </tr>
             </table>
-            <br>
-            <p style="text-align: right"><a href="<?php echo site_url('kendaraan') ?>" class="btn btn-default">Kembali</a></p>
-
+            <?php
+            if ($user['level'] == 'Admin') { ?>
+               <br>
+               <p style="text-align: right"><a href="<?php echo site_url('kendaraan') ?>" class="btn btn-default">Kembali</a></p>
+            <?php } ?>
          </div>
          <!-- /.box-body -->
       </div>

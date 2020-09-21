@@ -30,8 +30,8 @@
 <!-- FastClick -->
 <script src="<?= base_url() ?>assets/admin/bower_components/fastclick/lib/fastclick.js"></script>
 <!-- date-range-picker -->
-<script src="assets/admin/bower_components/moment/min/moment.min.js"></script>
-<script src="assets/admin/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
+<script src="<?= base_url() ?>assets/admin/bower_components/moment/min/moment.min.js"></script>
+<script src="<?= base_url() ?>assets/admin/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
 <!-- bootstrap datepicker -->
 <script src="<?= base_url() ?>assets/admin/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
 <!-- iCheck 1.0.1 -->
