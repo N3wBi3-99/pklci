@@ -156,8 +156,12 @@ class Service extends CI_Controller
       $this->form_validation->set_rules('id_bengkel', 'id bengkel', 'trim|required');
       $this->form_validation->set_rules('total', 'total', 'trim|required');
       $this->form_validation->set_rules('tgl_service', 'tgl service', 'trim|required');
-      $this->form_validation->set_rules('foto_service', 'foto service', 'trim');
-      $this->form_validation->set_rules('foto_nota', 'foto nota', 'trim');
+      if (empty($_FILES['foto_service']['name'])) {
+         $this->form_validation->set_rules('foto_service', 'foto service', 'required');
+      }
+      if (empty($_FILES['foto_nota']['name'])) {
+         $this->form_validation->set_rules('foto_nota', 'foto nota', 'trim|required');
+      }
 
       $this->form_validation->set_rules('id', 'id', 'trim');
       $this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');

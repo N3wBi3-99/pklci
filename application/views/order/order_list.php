@@ -1,3 +1,9 @@
+<style type="text/css">
+   .modal-dialog {
+      width: 900px;
+
+   }
+</style>
 <div class="row">
    <div class="col-xs-12">
       <!-- untuk pengemudi yang tidak aktif -->
@@ -51,7 +57,11 @@
                            <td><?= $order->jenis_kendaraan ?></td>
                         <?php } ?>
                         <td><?= $order->jenis_order ?></td>
-                        <td><?= $order->ket_rusak ?></td>
+                        <td><?= $order->ket_rusak ?>
+                           <a href="" class="view_data" data-toggle="modal" data-target="#modal-default" id="<?= $order->foto_order ?>">(
+                              <i class="fa fa-info-circle"></i>)
+                           </a>
+                        </td>
                         <td><?= tgl_indo(($order->tgl_order)) ?></td>
                         <td>
                            <?php if (!$order->tgl_selesai) { ?>
@@ -85,6 +95,40 @@
                   <?php } ?>
                </tbody>
             </table>
+            <!-- Modal Detail Order -->
+            <div class="modal fade" id="modal-default">
+               <div class="modal-dialog">
+                  <div class="modal-content">
+                     <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                           <span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">Bukti Order</h4>
+                     </div>
+                     <div class="modal-body">
+                        <div id="gambar" style="text-align: center;">
+
+                        </div>
+                     </div>
+                     <div class="modal-footer">
+                        <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                     </div>
+                  </div>
+                  <!-- /.modal-content -->
+               </div>
+               <!-- /.modal-dialog -->
+            </div>
+            <!-- /.modal -->
+
+            <script>
+               $(document).ready(function() {
+                  $('.view_data').click(function() {
+                     var id = $(this).attr("id");
+                     path = "assets/img/order/" + id;
+                     document.getElementById("gambar").innerHTML = "<img src='" + path + "' width='700'>";
+                  });
+               });
+            </script>
+
          </div>
          <!-- /.box-body -->
       </div>

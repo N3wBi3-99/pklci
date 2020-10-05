@@ -71,11 +71,11 @@
             <div class="col-xs-12">
                <a href="<?php echo site_url('order') ?>" class="btn btn-default" style="margin-right: 5px;">Kembali</a>
                <a href="<?= site_url('order/cetak/' . $this->uri->segment(3)) ?>" target="_blank" class="btn btn-success pull-right">
-                  <i class="fa fa-print"></i> Print
+                  <i class="fa fa-print"></i> Cetak
                </a>
-               <button type="button" class="btn btn-primary pull-right" style="margin-right: 5px;">
+               <!-- <button type="button" class="btn btn-primary pull-right" style="margin-right: 5px;">
                   <i class="fa fa-download"></i> Generate PDF
-               </button>
+               </button> -->
             </div>
          </div>
          <!-- box-footer -->

@@ -137,18 +137,27 @@ class Pengemudi extends CI_Controller
       $this->load->view('layout/wrapper', $data);
    }
 
-   function cetak_kardek($id)
+   function cetak_kardek($id) // mencatat kardek
    {
       $pengemudi = $this->Pengemudi_model->kardek($id);
       $order = $this->Pengemudi_model->kardek_order($id);
       $data = array(
          'pengemudi_data' => $pengemudi,
          'order_data' => $order,
-         'title' => 'Data Kardek',
-         'isi'   => 'kardek/kardek_list'
+         'title' => 'Kartu Kardek',
+         'isi'   => 'kardek/kardek_cetak'
       );
       $data['user'] = $this->session->userdata();
-      $this->load->view('layout/wrapper', $data);
+      // konfigurasi file pdf
+      $html = $this->load->view('kardek/kardek_cetak', $data, TRUE);
+      $mpdf = new \Mpdf\Mpdf([
+         'mode' => 'utf-8',
+         'format' => [210, 330] //ukuran F4
+      ]);
+      $mpdf->SetTitle('Kartu Kardek');
+      $mpdf->WriteHTML($html);
+      $nama_file = url_title('Kartu Kardek', 'dash', 'true') . '-' . $pengemudi->nama . '.pdf';
+      $mpdf->Output($nama_file, 'I');
    }
 
    public function _rules()

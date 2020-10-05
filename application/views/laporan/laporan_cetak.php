@@ -13,11 +13,12 @@
                      <th>Tanggal Order</th>
                      <th>Tanggal Selesai</th>
                      <th>Service</th>
-                     <th>jumlah</th>
+                     <th>Total</th>
                   </tr>
                </thead>
                <tbody>
                   <?php $no = 1;
+                  $subtotal = 0;
                   foreach ($service_data as $id_pengemudi => $service) {
                      if ($service) {
                         foreach ($service as $key => $value) {
@@ -27,33 +28,29 @@
                                 JOIN kendaraan ON pengemudi.id_kendaraan = kendaraan.id
                                 WHERE pengemudi.id = {$id_pengemudi}";
                            $pengemudi = $this->db->query($sql)->row();
-                           // echo "<pre>";
-                           // print_r($pengemudi);
-                           // exit;
                   ?>
                            <tr>
                               <td width="30px"><?= $no++ ?></td>
-
                               <td><?= $pengemudi->nama ?></td>
                               <td><?= $pengemudi->no_plat ?></td>
-                              <?php
-
-                              ?>
                               <td><?= tgl_indo($value->tgl_order) ?></td>
                               <td><?= tgl_indo($value->tgl_selesai) ?></td>
                               <td><?= $value->nama_barang ?></td>
-                              <td><?= $value->total ?></td>
-                           <?php
-                        }
-                           ?>
+                              <td><?= rupiah($value->total) ?></td>
+
                            </tr>
-                     <?php
+                        <?php
+                           $subtotal += $value->total; //untuk menjumlahkan total biaya service
+                        }
+                        ?>
+                  <?php
                      }
                   }
-                     ?>
+                  ?>
                </tbody>
                <tfoot>
-
+                  <th colspan="6" style="text-align: center;"> Total Keseluruhan </th>
+                  <th><?= rupiah($subtotal) ?></th>
                </tfoot>
             </table>
          </div>

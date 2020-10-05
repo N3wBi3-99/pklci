@@ -110,13 +110,6 @@
                         </span>
                      </a>
                   </li>
-                  <li <?= $this->uri->segment(1) == 'nota' ? 'class="active"' : '' ?>>
-                     <a href="<?= base_url('nota') ?>">
-                        <i class="fa fa-file-text-o"></i> <span>Data Nota</span>
-                        <span class="pull-right-container">
-                        </span>
-                     </a>
-                  </li>
                   <li <?= $this->uri->segment(1) == 'bengkel' ? 'class="active"' : '' ?>>
                      <a href="<?= base_url('bengkel') ?>">
                         <i class="fa fa-gears"></i> <span>Data Bengkel</span>

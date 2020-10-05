@@ -14,6 +14,7 @@
       table {
          border: solid thin #000;
          border-collapse: collapse;
+         width: 75%;
       }
 
       td {
@@ -30,8 +31,8 @@
    <p><b>Rincian Bengkel</b></p>
    <table class="">
       <tr>
-         <td width="15%">Nama Bengkel</td>
-         <td width="3%">: </td>
+         <td width="25%">Nama Bengkel</td>
+         <td width="5%">: </td>
          <td> <?= $bengkel_data->nama_bengkel ?></td>
       </tr>
       <tr>
@@ -84,11 +85,16 @@
    <h2 style="text-align: center;"> Bukti Service dan Nota </h2>
 
    <h3>Bukti Service </h3>
-   <img src="<?= base_url('assets/img/service/' . $bengkel_data->foto_service) ?>" width="180" height="180" alt="foto_service">
-   <br>
+   <div style="text-align: center;">
+      <img src="<?= base_url('assets/img/service/' . $bengkel_data->foto_service) ?>" width="400" height="300" alt="foto_service">
+      <br>
+   </div>
    <h3>Bukti Nota Service </h3>
-   <img src="<?= base_url('assets/img/nota/' . $bengkel_data->foto_nota) ?>" width="180" height="180" alt="foto_nota">
-   <br>
+   <div style="text-align: center;">
+      <img src="<?= base_url('assets/img/nota/' . $bengkel_data->foto_nota) ?>" width="400" height="300" alt="foto_nota">
+      <br>
+   </div>
+
 </body>
 
 </html>

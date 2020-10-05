@@ -8,7 +8,7 @@
    <div class="pull-right hidden-xs">
       <b>Template By <a href="https://adminlte.io">AdminLTE </a></b>
    </div>
-   <strong>&copy; <?= date('Y') ?> Made With <b>❤</b> by <a href="#">Choi_Anam</a> | </strong> Information System
+   <strong>&copy; <?= date('Y') ?> Made With <b>❤</b> by <a href="#">Choirul Anam</a> | </strong> Information System
 </footer>
 <!-- Add the sidebar's background. This div must be placed
        immediately after the control sidebar -->

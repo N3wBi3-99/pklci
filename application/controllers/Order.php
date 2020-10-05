@@ -89,14 +89,14 @@ class Order extends CI_Controller
       $this->load->view('layout/wrapper', $data);
    }
 
-   public function cetak($id)
+   public function cetak($id) // mencetak rincian service setelah selesai
    {
       $bengkel = $this->Order_model->bengkel($id);
       $nota = $this->Order_model->nota($id);
       $data = array(
          'bengkel_data' => $bengkel,
          'nota_data' => $nota,
-         'title' => 'Cetak Detail Service',
+         'title' => 'Detail Service',
       );
       $data['user'] = $this->session->userdata();
       // konfigurasi file pdf
@@ -120,6 +120,7 @@ class Order extends CI_Controller
          'id_pengemudi' => set_value('id_pengemudi'),
          'jenis_order' => set_value('jenis_order'),
          'ket_rusak' => set_value('ket_rusak'),
+         'foto_order' => set_value('foto_order'),
          'tgl_order' => set_value('tgl_order'),
          'tgl_selesai' => set_value('tgl_selesai'),
          'status' => set_value('status'),
@@ -153,7 +154,35 @@ class Order extends CI_Controller
             'tgl_order' => date('Y-m-d'),
             'status' => 'Menunggu verifikasi',
          );
-         $this->Order_model->insert($data);
+         $tambah = $this->Order_model->insert($data);
+         $id = $this->db->insert_id();
+         // $id = 1;
+
+         // echo "<pre>";
+         // print_r($id);
+         // exit;
+         // untuk upload foto order
+         $upload_order = $_FILES['foto_order'];
+         if ($upload_order) {
+            $config_order['allowed_types'] = 'gif|jpg|png';
+            $config_order['max_size']     = '4096';
+            $config_order['upload_path'] = './assets/img/order/';
+            $config_order['file_name'] = $id . '_order';
+
+            $this->load->library('upload', $config_order);
+            if ($this->upload->do_upload('foto_order')) {
+               $new_order = $this->upload->data('file_name');
+               // $this->db->set('foto_order', $new_order);
+               $data = [
+                  'foto_order' => $new_order
+               ];
+               $this->Order_model->update($id, $data);
+            } else {
+               echo $this->upload->display_errors();
+            }
+         } // sampai sini
+
+         // $this->Order_model->insert($data);
          $this->session->set_flashdata('message', '<script>toastr.success("Data Berhasil Ditambahkan");</script>');
          redirect(site_url('order'));
       }
@@ -240,6 +269,9 @@ class Order extends CI_Controller
       $this->form_validation->set_rules('id_pengemudi', 'id pengemudi', 'trim');
       $this->form_validation->set_rules('jenis_order', 'jenis order', 'trim|required');
       $this->form_validation->set_rules('ket_rusak', 'ket rusak', 'trim|required');
+      if (empty($_FILES['foto_order']['name'])) {
+         $this->form_validation->set_rules('foto_order', 'foto order', 'required');
+      }
       $this->form_validation->set_rules('tgl_order', 'tgl order', 'trim');
       $this->form_validation->set_rules('tgl_selesai', 'tgl selesai', 'trim');
       $this->form_validation->set_rules('status', 'status', 'trim');

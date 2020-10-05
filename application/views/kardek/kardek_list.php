@@ -105,12 +105,9 @@
          <div class="box-footer with-border">
             <div class="col-xs-12">
                <a href="<?php echo site_url('pengemudi') ?>" class="btn btn-default" style="margin-right: 5px;">Kembali</a>
-               <a href="<?php echo site_url('pengemudi/cetak_kardek/' .  $this->uri->segment(3)) ?>" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> Print</a>
-               <button type="button" class="btn btn-success pull-right">
-                  <i class="fa fa-file-text-o"></i> Total biaya service
-               </button>
+               <a href="<?php echo site_url('pengemudi/cetak_kardek/' .  $this->uri->segment(3)) ?>" target="_blank" class="btn btn-success  pull-right"><i class="fa fa-print"></i> Print</a>
                <button type="button" class="btn btn-primary pull-right" style="margin-right: 5px;">
-                  <i class="fa fa-download"></i> Generate PDF
+                  <i class="fa fa-file-text-o"></i> Total biaya service
                </button>
             </div>
          </div>

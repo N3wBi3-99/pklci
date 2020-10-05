@@ -52,7 +52,7 @@
                <div class="box-body">
                   <!-- ini untuk menambah data service -->
                   <div class="form-group">
-                     <label for="int" class="col-sm-4 control-label">Kartu Order (Tgl Order) <?php echo form_error('id_order') ?></label>
+                     <label for="int" class="col-sm-4 control-label">Kartu Order (Tgl Order) </label>
                      <?php if ($id_order) {  ?>
                         <div class="col-sm-5">
                            <input type="hidden" class="form-control" name="id_order" value="<?= $id_order; ?>" readonly />
@@ -66,11 +66,13 @@
                                  <option value="<?= $order->id ?>"><?= date('d M Y', strtotime($order->tgl_order)) ?></option>
                               <?php } ?>
                            </select>
+                           <?php echo form_error('id_order') ?>
                         </div>
                      <?php } ?>
+
                   </div>
                   <div class="form-group">
-                     <label for="int" class="col-sm-4 control-label">Nama Bengkel <?php echo form_error('id_bengkel') ?></label>
+                     <label for="int" class="col-sm-4 control-label">Nama Bengkel </label>
                      <div class="col-sm-5">
                         <select name="id_bengkel" class="form-control select2">
                            <option value="">Pilih Bengkel</option>
@@ -78,10 +80,11 @@
                               <option value="<?= $bengkel->id ?>"><?= $bengkel->nama_bengkel ?></option>
                            <?php } ?>
                         </select>
+                        <?php echo form_error('id_bengkel') ?>
                      </div>
                   </div>
                   <div class="form-group">
-                     <label for="date" class="col-sm-4 control-label">Tanggal Service <?php echo form_error('tgl_service') ?></label>
+                     <label for="date" class="col-sm-4 control-label">Tanggal Service </label>
                      <div class="col-sm-5">
                         <div class="input-group date">
                            <div class="input-group-addon">
@@ -89,19 +92,22 @@
                            </div>
                            <input type="text" class="form-control pull-right" name="tgl_service" id="datepicker" placeholder="Tanggal Service" value="<?= $tgl_service; ?>" />
                         </div>
+                        <?php echo form_error('tgl_service') ?>
                      </div>
                   </div>
 
                   <div class="form-group">
-                     <label for="foto_service" class="col-sm-4 control-label">Foto Service <?php echo form_error('foto_service') ?></label>
+                     <label for="foto_service" class="col-sm-4 control-label">Foto Service </label>
                      <div class="col-sm-5">
                         <input type="file" id="foto_service" name="foto_service">
+                        <?php echo form_error('foto_service') ?>
                      </div>
                   </div>
                   <div class="form-group">
-                     <label for="foto_nota" class="col-sm-4 control-label">Foto Nota <?php echo form_error('foto_nota') ?></label>
+                     <label for="foto_nota" class="col-sm-4 control-label">Foto Nota </label>
                      <div class="col-sm-5">
                         <input type="file" id="foto_nota" name="foto_nota">
+                        <?php echo form_error('foto_nota') ?>
                      </div>
                   </div>
                   <input type="hidden" name="id" value="<?php echo $id; ?>" />
@@ -113,9 +119,10 @@
                      <div class="" style="margin: auto; width:90%;" id="divbarang"></div>
                   </div>
                   <div class="form-group">
-                     <label for="int" class="col-sm-4 control-label">Total <?php echo form_error('total') ?></label>
+                     <label for="int" class="col-sm-4 control-label">Total </label>
                      <div class="col-sm-5">
                         <input type="text" class="form-control" name="total" id="total" placeholder="Total" value="<?php echo $total; ?>" readonly />
+                        <?php echo form_error('total') ?>
                      </div>
                   </div>
                </div>
