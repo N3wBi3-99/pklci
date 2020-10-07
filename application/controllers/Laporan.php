@@ -43,12 +43,21 @@ class Laporan extends CI_Controller
          }
          $data = array(
             'service_data' => $service,
-            'title' => 'Cetak Laporan',
+            'title' => 'Laporan Biaya Pemeliharaan',
             'isi'   => 'laporan/laporan_cetak'
          );
-         $this->session->set_flashdata('message', '<script>toastr.success("Laporan Berhasil Dicetak");</script>');
+         // $this->session->set_flashdata('message', '<script>toastr.success("Laporan Berhasil Dicetak");</script>');
          $data['user'] = $this->session->userdata();
-         $this->load->view('layout/wrapper', $data);
+         // konfigurasi file pdf
+         $html = $this->load->view('laporan/laporan_cetak', $data, TRUE);
+         $mpdf = new \Mpdf\Mpdf([
+            'mode' => 'utf-8',
+            'format' => [210, 330] //ukuran F4
+         ]);
+         $mpdf->SetTitle('Laporan Biaya Pemeliharaan');
+         $mpdf->WriteHTML($html);
+         $nama_file = url_title('Laporan Biaya Pemeliharaan', 'dash', 'true') . '-' . tgl_indo($firstdate) . '-' . 'Sampai' . '-' . tgl_indo($lastdate) . '.pdf';
+         $mpdf->Output($nama_file, 'I');
       }
    }
 

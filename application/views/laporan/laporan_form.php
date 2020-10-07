@@ -6,7 +6,7 @@
          <div class="box-body table-responsive">
             <h3 style="text-align: center">Cetak Laporan</h3>
 
-            <form action="<?php echo $action; ?>" method="post">
+            <form action="<?php echo $action; ?>" method="post" target="_blank">
                <!-- Date range -->
                <div class="form-group">
                   <label>Date range:</label>
@@ -19,7 +19,7 @@
                   <!-- /.input group -->
                </div>
                <!-- /.form group -->
-               <button type="submit" class="btn btn-primary pull-right" id="range">Submit</button>
+               <button type="submit" class="btn btn-primary pull-right" id="range"><i class="fa fa-print"></i> Cetak</button>
             </form>
          </div>
          <!-- /.box-body -->

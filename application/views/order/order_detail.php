@@ -1,3 +1,9 @@
+<style type="text/css">
+   .modal-dialog {
+      width: 900px;
+   }
+</style>
+
 <div class="row">
    <div class="col-xs-12">
       <div class="box box-solid">
@@ -59,10 +65,61 @@
             <!-- sampai sini -->
             <div class="col-xs-5" style="text-align: center;">
                <h3>Bukti Service </h3>
-               <img src="<?= base_url('assets/img/service/' . $bengkel_data->foto_service) ?>" width="180" height="180" alt="foto_service">
+               <a href="" class="view_data" data-toggle="modal" data-target="#modal-service" id="<?= $bengkel_data->foto_service ?>"><img src="<?= base_url('assets/img/service/' . $bengkel_data->foto_service) ?>" width="180" height="180" alt="foto_service">
+               </a>
+
+               <!-- Modal foto service -->
+               <div class="modal fade" id="modal-service">
+                  <div class="modal-dialog">
+                     <div class="modal-content">
+                        <div class="modal-header">
+                           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span></button>
+                           <h4 class="modal-title">Bukti Service</h4>
+                        </div>
+                        <div class="modal-body">
+                           <div id="service" style="text-align: center;">
+                              <img src="<?= base_url('assets/img/service/' . $bengkel_data->foto_service) ?>" width="700" alt="foto_service">
+                           </div>
+                        </div>
+                        <div class="modal-footer">
+                           <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                        </div>
+                     </div>
+                     <!-- /.modal-content -->
+                  </div>
+                  <!-- /.modal-dialog -->
+               </div>
+               <!-- /.modal -->
+
                <br>
                <h3>Bukti Nota Service </h3>
-               <img src="<?= base_url('assets/img/nota/' . $bengkel_data->foto_nota) ?>" width="180" height="180" alt="foto_nota">
+               <a href="" class="view_data" data-toggle="modal" data-target="#modal-nota" id="<?= $bengkel_data->foto_nota ?>"><img src="<?= base_url('assets/img/nota/' . $bengkel_data->foto_nota) ?>" width="180" height="180" alt="foto_nota">
+               </a>
+
+               <!-- Modal Foto Nota -->
+               <div class="modal fade" id="modal-nota">
+                  <div class="modal-dialog">
+                     <div class="modal-content">
+                        <div class="modal-header">
+                           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span></button>
+                           <h4 class="modal-title">Bukti Nota</h4>
+                        </div>
+                        <div class="modal-body">
+                           <div id="service" style="text-align: center;">
+                              <img src="<?= base_url('assets/img/nota/' . $bengkel_data->foto_nota) ?>" width="700" alt="foto_nota">
+                           </div>
+                        </div>
+                        <div class="modal-footer">
+                           <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                        </div>
+                     </div>
+                     <!-- /.modal-content -->
+                  </div>
+                  <!-- /.modal-dialog -->
+               </div>
+               <!-- /.modal -->
                <br>
             </div>
          </div>

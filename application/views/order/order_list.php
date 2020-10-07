@@ -1,7 +1,6 @@
 <style type="text/css">
    .modal-dialog {
       width: 900px;
-
    }
 </style>
 <div class="row">
