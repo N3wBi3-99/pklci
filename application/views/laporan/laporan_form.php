@@ -9,7 +9,7 @@
             <form action="<?php echo $action; ?>" method="post" target="_blank">
                <!-- Date range -->
                <div class="form-group">
-                  <label>Date range:</label>
+                  <label>Pada Tanggal:</label>
                   <div class="input-group">
                      <div class="input-group-addon">
                         <i class="fa fa-calendar"></i>

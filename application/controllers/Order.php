@@ -14,7 +14,7 @@ class Order extends CI_Controller
 
    public function index()
    {
-      if ($this->session->userdata('level') == 'Pengemudi') {
+      if ($this->session->userdata('level') == '2') {
          $this->Pengemudi();
       }
       $order = $this->Order_model->list();

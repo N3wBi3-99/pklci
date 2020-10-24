@@ -35,6 +35,7 @@ class User extends CI_Controller
          'button' => 'Tambah',
          'action' => site_url('user/tambah_aksi'),
          'id' => set_value('id'),
+         'id_user_level' => set_value('id_user_level'),
          'nip' => set_value('nip'),
          'nama' => set_value('nama'),
          'tempat_lahir' => set_value('tempat_lahir'),
@@ -44,7 +45,6 @@ class User extends CI_Controller
          'alamat' => set_value('alamat'),
          'username' => set_value('username'),
          'password' => set_value('password'),
-         'level' => set_value('level'),
          'title' => 'Tambah Data', // untuk judul
          'isi' => 'user/user_form'
       ];
@@ -69,7 +69,7 @@ class User extends CI_Controller
             'alamat' => $this->input->post('alamat', TRUE),
             'username' => $this->input->post('username', TRUE),
             'password' => password_hash($this->input->post('password', TRUE), PASSWORD_DEFAULT),
-            'level' => $this->input->post('level', TRUE),
+            'id_user_level' => $this->input->post('id_user_level', TRUE),
          );
 
          $this->User_model->insert($data);
@@ -95,7 +95,7 @@ class User extends CI_Controller
             'alamat' => set_value('alamat', $row->alamat),
             'username' => set_value('username', $row->username),
             'password' => set_value('password', ''),
-            'level' => set_value('level', $row->level),
+            'id_user_level' => set_value('id_user_level', $row->id_user_level),
             'title' => 'Ubah Data', // untuk judul
             'isi' => 'user/user_form'
          );
@@ -124,12 +124,12 @@ class User extends CI_Controller
             'alamat' => $this->input->post('alamat', TRUE),
             'username' => $this->input->post('username', TRUE),
             'password' => password_hash($this->input->post('password', TRUE), PASSWORD_DEFAULT),
-            'level' => $this->input->post('level', TRUE),
+            'id_user_level' => $this->input->post('id_user_level', TRUE),
          );
 
          $this->User_model->update($this->input->post('id', TRUE), $data);
          $this->session->set_flashdata('message', '<script>toastr.success("Data Berhasil Diubah");</script>');
-         if ($this->session->userdata('level') == 'Pengemudi') {
+         if ($this->session->userdata('level') == '2') {
             $this->session->set_flashdata('message', '<script>toastr.success("Data Berhasil Diubah");</script>');
             redirect(site_url('order'));
          } else {
@@ -158,6 +158,7 @@ class User extends CI_Controller
       if ($row) {
          $data = array(
             'id' => $row->id,
+            'id_user_level' => $row->id_user_level,
             'nip' => $row->nip,
             'nama' => $row->nama,
             'tempat_lahir' => $row->tempat_lahir,
@@ -167,7 +168,6 @@ class User extends CI_Controller
             'alamat' => $row->alamat,
             'username' => $row->username,
             'password' => $row->password,
-            'level' => $row->level,
             'title' => 'Detail User', // untuk judul
             'isi' => 'user/user_read'
          );
@@ -188,9 +188,9 @@ class User extends CI_Controller
       $this->form_validation->set_rules('alamat', 'alamat', 'trim|required');
       $this->form_validation->set_rules('username', 'username', 'trim|required');
       $this->form_validation->set_rules('password', 'password', 'trim|required');
-      $this->form_validation->set_rules('level', 'level', 'trim|required');
 
       $this->form_validation->set_rules('id', 'id', 'trim');
+      $this->form_validation->set_rules('id_user_level', 'id_user_level', 'trim');
       $this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');
    }
 }

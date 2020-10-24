@@ -11,11 +11,11 @@
       <!-- Sidebar user panel -->
       <div class="user-panel">
          <div class="pull-left image">
-            <?php if ($user['level'] == 'Admin' && $user['jenis_kelamin'] == 'Laki-laki') { ?>
+            <?php if ($user['level'] == '1' && $user['jenis_kelamin'] == 'Laki-laki') { ?>
                <img src="<?= base_url() ?>assets/admin/img/user-7.png" class="user-image" alt="User Image">
-            <?php } elseif ($user['level'] == 'Admin' && $user['jenis_kelamin'] == 'Perempuan') { ?>
+            <?php } elseif ($user['level'] == '1' && $user['jenis_kelamin'] == 'Perempuan') { ?>
                <img src="<?= base_url() ?>assets/admin/img/user-8.png" class="user-image" alt="User Image">
-            <?php } elseif ($user['level'] == 'Pengemudi' && $user['jenis_kelamin'] == 'Laki-laki') { ?>
+            <?php } elseif ($user['level'] == '2' && $user['jenis_kelamin'] == 'Laki-laki') { ?>
                <img src="<?= base_url() ?>assets/admin/img/user-9.png" class="user-image" alt="User Image">
             <?php } else { ?>
                <img src="<?= base_url() ?>assets/admin/img/user-0.png" class="user-image" alt="User Image">
@@ -23,8 +23,8 @@
          </div>
          <div class="pull-left info">
             <p><?= $user['nama']; ?></p>
-            <?php if ($user['level'] == 'Pengemudi') { ?>
-               <a href="#"><i class="fa fa-circle text-success"></i> <?= $user['level']; ?></a>
+            <?php if ($user['level'] == '2') { ?>
+               <a href="#"><i class="fa fa-circle text-success"></i> Pengemudi</a>
             <?php } else { ?>
                <a href="#"><i class="fa fa-circle text-success"></i> Kasubbag Umum</a>
             <?php } ?>
@@ -33,7 +33,7 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
          <li class="header">DAFTAR MENU</li>
-         <?php if ($user['level'] == 'Admin') { ?>
+         <?php if ($user['level'] == '1') { ?>
             <li <?= $this->uri->segment(1) == 'dashboard' || $this->uri->segment(1) == '' ? 'class="active"' : '' ?>>
                <a href="<?= base_url('dashboard') ?>">
                   <i class="fa fa-dashboard"></i> <span>Dashboard</span>
@@ -50,7 +50,7 @@
                </span>
             </a>
          </li>
-         <?php if ($user['level'] == 'Admin') { ?>
+         <?php if ($user['level'] == '1') { ?>
             <li <?= $this->uri->segment(1) == 'pengemudi' ? 'class="active"' : '' ?>>
                <a href="<?= base_url('pengemudi') ?>">
                   <i class="fa fa-user-secret"></i> <span>Data Pengemudi</span>
@@ -87,7 +87,7 @@
                </a>
             </li>
          <?php } ?>
-         <?php if ($user['level'] == 'Pengemudi') { ?>
+         <?php if ($user['level'] == '2') { ?>
             <li <?= $this->uri->segment(1) == 'kendaraan' ? 'class="active"' : '' ?>>
                <a href="<?= base_url('kendaraan') ?>">
                   <i class="fa fa-truck"></i> <span>Detail Kendaraan</span>

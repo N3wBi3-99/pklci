@@ -3,7 +3,7 @@
       <div class="box box-info">
          <!-- /.box-header -->
          <div class="box-body">
-            <?php if ($user['level'] == 'Admin') { ?>
+            <?php if ($user['level'] == '1') { ?>
                <form action="<?php echo $action; ?>" method="post">
                <?php } else { ?>
                   <form action="<?= base_url('user/ubah_aksi'); ?>" method="post">
@@ -82,25 +82,22 @@
                                  <?php echo form_error('password') ?>
                               </div>
                            </div>
-                           <?php if ($user['level'] == 'Admin') { ?>
-                              <div class="form-group">
-                                 <label for="enum" class="col-sm-2 control-label">Level</label>
-                                 <div class="col-sm-8">
-                                    <select name="level" class="form-control select2 col-sm-8">
-                                       <option value="">Pilih Level</option>
-                                       <option value="Admin" <?= $level == 'Admin' ? 'selected' : '' ?>>Admin</option>
-                                       <option value="Pengemudi" <?= $level == 'Pengemudi' ? 'selected' : '' ?>>Pengemudi</option>
-                                    </select>
-                                    <?php echo form_error('level') ?>
-                                 </div>
-                              </div>
+                           <?php if ($user['level'] == '1') { ?>
+                              <?php if ($id_user_level == '1') { ?>
+                                 <input type="hidden" name="id_user_level" value="1" />
+                              <?php } elseif (!$id_user_level) { ?>
+                                 <input type="hidden" name="id_user_level" value="2" />
+                              <?php } else { ?>
+                                 <input type="hidden" name="id_user_level" value="2" />
+                              <?php } ?>
+                           <?php } else { ?>
+                              <input type="hidden" name="id_user_level" value="2" />
                            <?php } ?>
-                           <input type="hidden" name="level" value="Pengemudi" />
                            <input type="hidden" name="id" value="<?php echo $id; ?>" />
                         </div>
                      </div>
                      <div class="box-footer">
-                        <?php if ($user['level'] == 'Admin') { ?>
+                        <?php if ($user['level'] == '1') { ?>
                            <a href="<?php echo site_url('user') ?>" class="btn btn-default">Batal</a>
                            <button type="submit" class="btn btn-primary pull-right"><?php echo $button ?></button>
                         <?php } else { ?>

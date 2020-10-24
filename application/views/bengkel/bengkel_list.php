@@ -4,7 +4,7 @@
          <!-- /.box-header -->
          <?= $this->session->flashdata('message'); ?>
          <div class="box-body table-responsive">
-            <?php if ($user['level'] == 'Admin') { ?>
+            <?php if ($user['level'] == '1') { ?>
                <p>
                   <a href="<?= base_url('bengkel/tambah') ?>" class="btn btn-success btn-sm"><i class="fa fa-plus"></i> Tambah Data</a>
                </p>
@@ -17,7 +17,7 @@
                      <th>Nama Bengkel</th>
                      <th>Alamat</th>
                      <th>Nomor HP</th>
-                     <?php if ($user['level'] == 'Admin') { ?>
+                     <?php if ($user['level'] == '1') { ?>
                         <th>Aksi</th>
                      <?php } ?>
                   </tr>
@@ -30,7 +30,7 @@
                         <td><?= $bengkel->nama_bengkel ?></td>
                         <td><?= $bengkel->alamat ?></td>
                         <td><?= $bengkel->no_hp ?></td>
-                        <?php if ($user['level'] == 'Admin') { ?>
+                        <?php if ($user['level'] == '1') { ?>
                            <td style="text-align:center" width="120px">
                               <a href="<?= base_url('bengkel/read/' . $bengkel->id) ?>" class="btn btn-info btn-sm" title="Detail"><i class="fa fa-info-circle"></i> </a>
                               <?php

@@ -171,7 +171,6 @@ class Kendaraan extends CI_Controller
       $this->form_validation->set_rules('nama_pemilik', 'nama pemilik', 'trim|required');
       $this->form_validation->set_rules('merk', 'merk', 'trim|required');
       $this->form_validation->set_rules('jenis_kendaraan', 'jenis kendaraan', 'trim|required');
-      $this->form_validation->set_rules('warna', 'warna', 'trim|required');
       $this->form_validation->set_rules('tahun_pembuatan', 'tahun pembuatan', 'trim|required');
       $this->form_validation->set_rules('no_plat', 'no plat', 'trim|required');
       $this->form_validation->set_rules('no_rangka', 'no rangka', 'trim|required');

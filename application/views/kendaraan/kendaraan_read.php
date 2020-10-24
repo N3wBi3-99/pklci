@@ -39,7 +39,7 @@
                </tr>
             </table>
             <?php
-            if ($user['level'] == 'Admin') { ?>
+            if ($user['level'] == '1') { ?>
                <br>
                <p style="text-align: right"><a href="<?php echo site_url('kendaraan') ?>" class="btn btn-default">Kembali</a></p>
             <?php } ?>

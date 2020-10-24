@@ -12,10 +12,10 @@ function login($username, $password)
             'username' => $user['username'],
             'nama' => $user['nama'],
             'jenis_kelamin' => $user['jenis_kelamin'],
-            'level' => $user['level'],
+            'level' => $user['id_user_level'],
          ];
          $ci->session->set_userdata($data);
-         if ($ci->session->userdata('level') == 'Pengemudi') {
+         if ($ci->session->userdata('level') == '2') {
             redirect('order');
          } else {
             redirect('dashboard');
@@ -51,7 +51,7 @@ function cek_admin()
    $ci = get_instance();
    if (!$ci->session->userdata('username')) {
       redirect('auth');
-   } elseif ($ci->session->userdata('level') != 'Admin') {
+   } elseif ($ci->session->userdata('level') != '1') {
       redirect('auth/blocked');
    }
 }

@@ -43,7 +43,7 @@
                </tr>
                <tr>
                   <td>Level</td>
-                  <td><?php echo $level; ?></td>
+                  <td><?= $id_user_level == '1' ? 'Kasubbag Umum' : 'Pengemudi' ?></td>
                </tr>
             </table>
             <br>

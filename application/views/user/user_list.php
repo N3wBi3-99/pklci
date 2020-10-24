@@ -32,8 +32,8 @@
                         <td><?= $user->alamat ?></td>
                         <td><?= $user->jenis_kelamin ?></td>
                         <td><?= $user->no_hp ?></td>
-                        <td><?= $user->level ?></td>
-                        <td style="text-align:center">
+                        <td><?= $user->id_user_level == '1' ? 'Kasubbag Umum' : 'Pengemudi' ?></td>
+                        <td style="text-align:center" width="120px">
                            <a href="<?= base_url('user/read/' . $user->id) ?>" class="btn btn-info btn-sm" title="Detail"><i class="fa fa-info-circle"></i> </a>
                            <?php
                            $sql = "SELECT * FROM pengemudi WHERE id_user = {$user->id}";

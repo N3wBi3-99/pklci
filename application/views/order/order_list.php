@@ -6,7 +6,7 @@
 <div class="row">
    <div class="col-xs-12">
       <!-- untuk pengemudi yang tidak aktif -->
-      <?php if ($user['level'] == 'Pengemudi') { ?>
+      <?php if ($user['level'] == '2') { ?>
          <?php if ($status != "Aktif") { ?>
             <div class="callout callout-warning">
                <h4><i class="icon fa fa-warning"></i> Perhatian</h4>
@@ -19,7 +19,7 @@
          <!-- /.box-header -->
          <?= $this->session->flashdata('message'); ?>
          <div class="box-body table-responsive">
-            <?php if ($user['level'] == 'Pengemudi') { ?>
+            <?php if ($user['level'] == '2') { ?>
                <?php if ($status == 'Aktif') { ?>
                   <p>
                      <a href="<?= base_url('order/tambah') ?>" class="btn btn-success btn-sm"><i class="fa fa-plus"></i> Tambah Data</a>
@@ -31,7 +31,7 @@
                <thead>
                   <tr>
                      <th>No</th>
-                     <?php if ($user['level'] == 'Admin') { ?>
+                     <?php if ($user['level'] == '1') { ?>
                         <th>Pengemudi</th>
                      <?php } else { ?>
                         <th>Nomor Plat</th>
@@ -49,7 +49,7 @@
                   foreach ($order_data as $order) { ?>
                      <tr>
                         <td><?= $no++ ?></td>
-                        <?php if ($user['level'] == 'Admin') { ?>
+                        <?php if ($user['level'] == '1') { ?>
                            <td><?= $order->nama ?></td>
                         <?php } else { ?>
                            <td><?= $order->no_plat ?></td>

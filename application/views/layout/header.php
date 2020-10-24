@@ -19,7 +19,7 @@
       <div class="navbar-custom-menu">
          <ul class="nav navbar-nav">
             <!-- Notifications: style can be found in dropdown.less -->
-            <?php if ($user['level'] == 'Admin') { ?>
+            <?php if ($user['level'] == '1') { ?>
                <li class="dropdown notifications-menu">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                      <i class="fa fa-bell-o"></i>
@@ -61,11 +61,11 @@
             <!-- User Account: style can be found in dropdown.less -->
             <li class="dropdown user user-menu">
                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  <?php if ($user['level'] == 'Admin' && $user['jenis_kelamin'] == 'Laki-laki') { ?>
+                  <?php if ($user['level'] == '1' && $user['jenis_kelamin'] == 'Laki-laki') { ?>
                      <img src="<?= base_url() ?>assets/admin/img/user-7.png" class="user-image" alt="User Image">
-                  <?php } elseif ($user['level'] == 'Admin' && $user['jenis_kelamin'] == 'Perempuan') { ?>
+                  <?php } elseif ($user['level'] == '1' && $user['jenis_kelamin'] == 'Perempuan') { ?>
                      <img src="<?= base_url() ?>assets/admin/img/user-8.png" class="user-image" alt="User Image">
-                  <?php } elseif ($user['level'] == 'Pengemudi' && $user['jenis_kelamin'] == 'Laki-laki') { ?>
+                  <?php } elseif ($user['level'] == '2' && $user['jenis_kelamin'] == 'Laki-laki') { ?>
                      <img src="<?= base_url() ?>assets/admin/img/user-9.png" class="user-image" alt="User Image">
                   <?php } else { ?>
                      <img src="<?= base_url() ?>assets/admin/img/user-0.png" class="user-image" alt="User Image">
@@ -75,19 +75,19 @@
                <ul class="dropdown-menu">
                   <!-- User image -->
                   <li class="user-header">
-                     <?php if ($user['level'] == 'Admin' && $user['jenis_kelamin'] == 'Laki-laki') { ?>
+                     <?php if ($user['level'] == '1' && $user['jenis_kelamin'] == 'Laki-laki') { ?>
                         <img src="<?= base_url() ?>assets/admin/img/user-7.png" class="img-circle" alt="User Image">
-                     <?php } elseif ($user['level'] == 'Admin' && $user['jenis_kelamin'] == 'Perempuan') { ?>
+                     <?php } elseif ($user['level'] == '1' && $user['jenis_kelamin'] == 'Perempuan') { ?>
                         <img src="<?= base_url() ?>assets/admin/img/user-8.png" class="img-circle" alt="User Image">
-                     <?php } elseif ($user['level'] == 'Pengemudi' && $user['jenis_kelamin'] == 'Laki-laki') { ?>
+                     <?php } elseif ($user['level'] == '2' && $user['jenis_kelamin'] == 'Laki-laki') { ?>
                         <img src="<?= base_url() ?>assets/admin/img/user-9.png" class="img-circle" alt="User Image">
                      <?php } else { ?>
                         <img src="<?= base_url() ?>assets/admin/img/user-0.png" class="img-circle" alt="User Image">
                      <?php } ?>
                      <br> <br>
                      <p>
-                        <?= $user['nama']; ?> - <?php if ($user['level'] == 'Pengemudi') { ?>
-                           <?= $user['level']; ?></a>
+                        <?= $user['nama']; ?> - <?php if ($user['level'] == '2') { ?>
+                           Pengemudi
                         <?php } else { ?>
                            Kasubbag Umum
                         <?php } ?>
