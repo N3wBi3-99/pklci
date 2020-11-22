@@ -13,7 +13,7 @@ class User extends CI_Controller
    public function index()
    {
       // cek level login
-      if ($this->session->userdata('level') == 'Pengemudi') {
+      if ($this->session->userdata('level') == '2') {
          $user = $this->session->userdata();
          $id = $user['id'];
          $this->ubah($id);

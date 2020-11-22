@@ -59,13 +59,6 @@
                               <?php echo form_error('no_mesin') ?>
                            </div>
                         </div>
-                        <div class="form-group">
-                           <label for="int" class="col-sm-3 control-label">Nomor BPKB </label>
-                           <div class="col-sm-8">
-                              <input type="text" class="form-control" name="no_bpkb" id="no_bpkb" placeholder="Nomor BPKB" value="<?php echo $no_bpkb; ?>" onkeypress="return hanyaAngka(event)" />
-                              <?php echo form_error('no_bpkb') ?>
-                           </div>
-                        </div>
                         <input type="hidden" name="id" value="<?php echo $id; ?>" />
                      </div>
                   </div>

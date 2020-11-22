@@ -33,10 +33,6 @@
                   <td>No Mesin</td>
                   <td><?php echo $no_mesin; ?></td>
                </tr>
-               <tr>
-                  <td>No Bpkb</td>
-                  <td><?php echo $no_bpkb; ?></td>
-               </tr>
             </table>
             <?php
             if ($user['level'] == '1') { ?>

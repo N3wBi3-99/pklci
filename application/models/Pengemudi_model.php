@@ -51,8 +51,8 @@ class Pengemudi_model extends CI_Model
    function cmbuser()
    {
       $sql = "SELECT * FROM `user` WHERE `user`.id 
-      NOT IN (SELECT id_user FROM pengemudi where pengemudi.status = 'Aktif')
-      AND `user`.`level`='pengemudi'";
+      NOT IN (SELECT id_user FROM pengemudi join user_level where pengemudi.status = 'Aktif'  AND user_level.id='2')
+     ";
       return $this->db->query($sql)->result();
    }
 

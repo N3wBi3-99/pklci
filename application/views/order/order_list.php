@@ -70,14 +70,14 @@
                            <?php } else { ?>
                               <?= tgl_indo(($order->tgl_selesai)); ?>
                               <?= ''; ?>
-                              <?php if ($user['level'] == 'Admin') { ?>
+                              <?php if ($user['level'] == '1') { ?>
                                  <a href="<?= base_url('order/detail/' . $order->id) ?>" title="Detail">(<i class="fa fa-info-circle"></i>) </a>
                               <?php } ?>
                            <?php } ?>
                         </td>
                         <td style="text-align:center">
                            <?php if ($order->status == 'Menunggu verifikasi') { ?>
-                              <?php if ($user['level'] == 'Admin') { ?>
+                              <?php if ($user['level'] == '1') { ?>
                                  <a href="<?= base_url('order/verifikasi_setuju/' . $order->id) ?>" class="btn btn-success btn-sm" onClick="return confirm('Verifikasi order ini ?')"><i class="fa fa-check"></i> </a>
                                  <a href="<?= base_url('order/verifikasi_tolak/' . $order->id) ?>" class="btn btn-danger btn-sm" onClick="return confirm('Tolak order ini ?')"><i class="fa fa-close"></i></a>
                               <?php } else { ?>

@@ -13,7 +13,7 @@ class Kendaraan extends CI_Controller
    public function index()
    {
       // untuk detail kendaraan di pengemudi
-      if ($this->session->userdata('level') == 'Pengemudi') {
+      if ($this->session->userdata('level') == '2') {
          $user = $this->session->userdata();
          $iduser = $user['id']; // mengambil id user
          $array = $this->Kendaraan_model->detail($iduser); // di proses untuk mengambil id kendaraan
@@ -48,7 +48,6 @@ class Kendaraan extends CI_Controller
          'no_plat' => set_value('no_plat'),
          'no_rangka' => set_value('no_rangka'),
          'no_mesin' => set_value('no_mesin'),
-         'no_bpkb' => set_value('no_bpkb'),
          'title' => 'Tambah Data',
          'isi'   => 'kendaraan/kendaraan_form'
       ];
@@ -71,7 +70,6 @@ class Kendaraan extends CI_Controller
             'no_plat' => $this->input->post('no_plat', TRUE),
             'no_rangka' => $this->input->post('no_rangka', TRUE),
             'no_mesin' => $this->input->post('no_mesin', TRUE),
-            'no_bpkb' => $this->input->post('no_bpkb', TRUE),
          );
 
          $this->Kendaraan_model->insert($data);
@@ -95,7 +93,6 @@ class Kendaraan extends CI_Controller
             'no_plat' => set_value('no_plat', $row->no_plat),
             'no_rangka' => set_value('no_rangka', $row->no_rangka),
             'no_mesin' => set_value('no_mesin', $row->no_mesin),
-            'no_bpkb' => set_value('no_bpkb', $row->no_bpkb),
             'title' => 'Ubah Data', // untuk judul
             'isi' => 'kendaraan/kendaraan_form'
          );
@@ -123,7 +120,6 @@ class Kendaraan extends CI_Controller
             'no_plat' => $this->input->post('no_plat', TRUE),
             'no_rangka' => $this->input->post('no_rangka', TRUE),
             'no_mesin' => $this->input->post('no_mesin', TRUE),
-            'no_bpkb' => $this->input->post('no_bpkb', TRUE),
          );
 
          $this->Kendaraan_model->update($this->input->post('id', TRUE), $data);
@@ -158,7 +154,6 @@ class Kendaraan extends CI_Controller
             'no_plat' => $row->no_plat,
             'no_rangka' => $row->no_rangka,
             'no_mesin' => $row->no_mesin,
-            'no_bpkb' => $row->no_bpkb,
             'title' => 'Detail Kendaraan', // untuk judul
             'isi' => 'kendaraan/kendaraan_read'
          );

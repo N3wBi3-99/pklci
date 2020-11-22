@@ -73,7 +73,6 @@ class Pengemudi extends CI_Controller
             'status' => 'Aktif',
             'tgl_aktif' => date('Y-m-d'),
          );
-
          $this->Pengemudi_model->insert($data);
          $this->session->set_flashdata('message', '<script>toastr.success("Data Berhasil Ditambahkan");</script>');
          redirect(site_url('pengemudi'));
